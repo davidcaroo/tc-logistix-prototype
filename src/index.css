@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-orange: #FF6B00;
+  --color-brand-orange-muted: rgba(255, 107, 0, 0.2);
+  --color-brand-dark: #0A0A0A;
+  --color-brand-dark-alt: #141414;
+  --color-brand-dark-surface: #1C1C1C;
+  --color-brand-dark-border: #2A2A2A;
+  --color-brand-white: #F5F5F0;
+  --color-brand-grey: #888888;
+  --color-brand-success: #00FF87;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-brand-white font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wider uppercase;
+  }
+}
+
+@layer components {
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+  }
+
+  .text-gradient-animated {
+    background: linear-gradient(
+      to right,
+      var(--color-brand-orange),
+      #ff9d4d,
+      var(--color-brand-orange)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s linear infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+}

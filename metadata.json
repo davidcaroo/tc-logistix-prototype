@@ -1,0 +1,7 @@
+{
+  "name": "TC Logistix - Infraestructura en Movimiento",
+  "description": "Rediseño de la plataforma logística de TC Logistix. Soluciones integrales de transporte, almacenamiento y comercio exterior en Colombia.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
