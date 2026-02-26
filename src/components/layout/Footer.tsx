@@ -34,13 +34,19 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="font-display text-lg mb-6 tracking-widest text-brand-text">Navegación</h4>
           <ul className="flex flex-col gap-4">
-            {["Inicio", "Empresa", "Servicios", "Vacantes", "Contacto"].map((item) => (
-              <li key={item}>
+            {[
+              { label: "Inicio", path: "/" },
+              { label: "Empresa", path: "/company" },
+              { label: "Servicios", path: "/services" },
+              { label: "Vacantes", path: "/vacancies" },
+              { label: "Contacto", path: "/contact" },
+            ].map((item) => (
+              <li key={item.label}>
                 <Link
-                  to={item === "Inicio" ? "/" : `/${item.toLowerCase()}`}
+                  to={item.path}
                   className="text-brand-muted text-sm hover:text-brand-accent transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             ))}
