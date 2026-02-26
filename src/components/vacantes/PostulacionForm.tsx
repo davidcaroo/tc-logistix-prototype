@@ -80,14 +80,14 @@ export function PostulacionForm({
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
         >
-          <CheckCircle size={56} className="text-[#FF6B00]" />
+          <CheckCircle size={56} className="text-brand-accent" />
         </motion.div>
-        <h3 className="font-display text-2xl text-white uppercase tracking-wider">
+        <h3 className="font-display text-2xl text-brand-text uppercase tracking-wider">
           ¡Postulación Enviada!
         </h3>
-        <p className="text-[#888] text-sm max-w-xs">
+        <p className="text-brand-muted text-sm max-w-xs">
           Nos pondremos en contacto contigo pronto. Revisa tu correo{' '}
-          <span className="text-[#FF6B00]">{contactoEmail}</span>
+          <span className="text-brand-accent">{contactoEmail}</span>
         </p>
       </motion.div>
     );
@@ -100,14 +100,14 @@ export function PostulacionForm({
         <button
           type="button"
           onClick={onBack}
-          className="text-[#888] hover:text-white transition-colors"
+          className="text-brand-muted hover:text-brand-text transition-colors"
           aria-label="Volver al detalle"
         >
           <ArrowLeft size={18} />
         </button>
         <div>
-          <p className="text-[#FF6B00] text-xs font-mono tracking-widest uppercase">Postulación</p>
-          <h3 className="font-display text-xl text-white uppercase">{vacanteTitulo}</h3>
+          <p className="text-brand-accent text-xs font-mono tracking-widest uppercase">Postulación</p>
+          <h3 className="font-display text-xl text-brand-text uppercase">{vacanteTitulo}</h3>
         </div>
       </div>
 
@@ -154,7 +154,7 @@ export function PostulacionForm({
         type="submit"
         disabled={status === 'loading'}
         className="
-          relative w-full py-4 bg-[#FF6B00] text-black
+          relative w-full py-4 bg-brand-accent text-brand-bg
           font-display text-xl tracking-widest uppercase
           disabled:opacity-70 disabled:cursor-not-allowed
           overflow-hidden group
@@ -184,13 +184,13 @@ function Field({ label, error, children }: {
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-xs font-mono tracking-widest text-[#888] uppercase">{label}</label>
+      <label className="text-xs font-mono tracking-widest text-brand-muted uppercase">{label}</label>
       {React.cloneElement(children as React.ReactElement<any>, {
         className: `
-          w-full bg-[#1C1C1C] border px-4 py-3 text-sm text-white
-          placeholder:text-[#444] outline-none
-          focus:border-[#FF6B00] transition-colors duration-200
-          ${error ? 'border-red-500' : 'border-[#2A2A2A]'}
+          w-full bg-brand-surface border px-4 py-3 text-sm text-brand-text
+          placeholder:text-brand-subtle outline-none
+          focus:border-brand-accent transition-colors duration-200
+          ${error ? 'border-red-500' : 'border-brand-border'}
           ${(children as any).props.className ?? ''}
         `,
       })}

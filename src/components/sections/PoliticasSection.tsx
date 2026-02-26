@@ -67,7 +67,7 @@ function PoliticaAccordion({
       layout
       className={`
         border overflow-hidden transition-colors duration-300
-        ${isOpen ? 'border-brand-orange/40 bg-brand-dark-alt' : 'border-brand-dark-border bg-[#0F0F0F]'}
+        ${isOpen ? 'border-brand-accent/40 bg-brand-bg-2' : 'border-brand-border bg-brand-bg'}
       `}
     >
       {/* ── Header del accordion ── */}
@@ -81,7 +81,7 @@ function PoliticaAccordion({
         <span className={`
           font-mono text-xs tracking-widest flex-shrink-0 w-6
           transition-colors duration-300
-          ${isOpen ? 'text-brand-orange' : 'text-[#333]'}
+          ${isOpen ? 'text-brand-accent' : 'text-brand-subtle'}
         `}>
           0{index + 1}
         </span>
@@ -91,8 +91,8 @@ function PoliticaAccordion({
           w-10 h-10 flex items-center justify-center flex-shrink-0
           border transition-all duration-300
           ${isOpen
-            ? 'border-brand-orange text-brand-orange bg-brand-orange/10 shadow-[0_0_16px_rgba(255,107,0,0.15)]'
-            : 'border-[#222] text-[#444] group-hover:border-brand-orange/30 group-hover:text-brand-orange/50'}
+            ? 'border-brand-accent text-brand-accent bg-brand-accent/10 shadow-glow'
+            : 'border-brand-border text-brand-muted group-hover:border-brand-accent/30 group-hover:text-brand-accent/50'}
         `}>
           <Icon size={16} />
         </div>
@@ -100,13 +100,13 @@ function PoliticaAccordion({
         {/* Título + badge + resumen */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-display text-xl text-brand-white uppercase tracking-wider leading-none">
+            <span className="font-display text-xl text-brand-text uppercase tracking-wider leading-none">
               {politica.titulo}
             </span>
             {politica.etiqueta && (
               <span className="
                 text-[10px] font-mono tracking-widest px-2 py-0.5
-                border border-brand-orange/50 text-brand-orange bg-brand-orange/5
+                border border-brand-accent/50 text-brand-accent bg-brand-accent/5
               ">
                 {politica.etiqueta}
               </span>
@@ -131,7 +131,7 @@ function PoliticaAccordion({
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           className={`flex-shrink-0 transition-colors duration-300
-            ${isOpen ? 'text-brand-orange' : 'text-[#444]'}`}
+            ${isOpen ? 'text-brand-accent' : 'text-brand-subtle'}`}
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -139,7 +139,7 @@ function PoliticaAccordion({
 
       {/* Línea naranja animada */}
       <motion.div
-        className="h-[1px] bg-gradient-to-r from-brand-orange to-transparent origin-left"
+        className="h-[1px] bg-gradient-to-r from-brand-accent to-transparent origin-left"
         variants={lineVariants}
         animate={isOpen ? 'open' : 'collapsed'}
         initial="collapsed"
@@ -169,7 +169,7 @@ function PoliticaAccordion({
                       key={i}
                       custom={i}
                       variants={listItemVariants}
-                      className="text-brand-grey text-sm leading-relaxed"
+                      className="text-brand-muted text-sm leading-relaxed"
                     >
                       {bloque.texto}
                     </motion.p>
@@ -183,9 +183,9 @@ function PoliticaAccordion({
                       custom={i}
                       variants={listItemVariants}
                       className="
-                        border-l-2 border-brand-orange pl-5
-                        text-[#aaa] text-sm leading-relaxed italic
-                        bg-brand-orange/5 py-3 pr-4
+                        border-l-2 border-brand-accent pl-5
+                        text-brand-muted text-sm leading-relaxed italic
+                        bg-brand-accent/5 py-3 pr-4
                       "
                     >
                       {bloque.texto}
@@ -201,11 +201,11 @@ function PoliticaAccordion({
                           key={j}
                           custom={j}
                           variants={listItemVariants}
-                          className="flex items-start gap-3 text-sm text-[#777]"
+                          className="flex items-start gap-3 text-sm text-brand-muted"
                         >
                           <CheckCircle2
                             size={14}
-                            className="text-brand-orange mt-0.5 flex-shrink-0"
+                            className="text-brand-accent mt-0.5 flex-shrink-0"
                           />
                           <span className="leading-relaxed">{item}</span>
                         </motion.li>
@@ -235,7 +235,7 @@ export function PoliticasSection() {
     <section
       id="politicas"
       aria-label="Políticas corporativas TC Logistix"
-      className="py-24 px-4 bg-brand-dark"
+      className="py-24 px-4 bg-brand-bg"
     >
       <div className="max-w-4xl mx-auto">
 
@@ -247,24 +247,24 @@ export function PoliticasSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <span className="text-brand-orange text-xs font-mono tracking-[0.25em] uppercase block mb-3">
+          <span className="text-brand-accent text-xs font-mono tracking-[0.25em] uppercase block mb-3">
             Gobierno Corporativo
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-brand-white uppercase leading-none">
+          <h2 className="font-display text-5xl md:text-6xl text-brand-text uppercase leading-none">
             Nuestras<br />
-            <span className="text-brand-orange">Políticas</span>
+            <span className="text-brand-accent">Políticas</span>
           </h2>
 
           {/* Línea decorativa */}
           <motion.div
-            className="mt-5 h-[2px] w-16 bg-brand-orange origin-left"
+            className="mt-5 h-[2px] w-16 bg-brand-accent origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           />
 
-          <p className="mt-4 text-brand-grey text-sm max-w-xl leading-relaxed">
+          <p className="mt-4 text-brand-muted text-sm max-w-xl leading-relaxed">
             Comprometidos con los más altos estándares que cuidan a las personas y la operación.
             Conoce los principios que rigen cada proceso de TC Logistix.
           </p>
@@ -295,18 +295,18 @@ export function PoliticasSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 pt-12 border-t border-brand-dark-border"
+          className="mt-16 pt-12 border-t border-brand-border"
         >
-          <p className="text-[#444] text-xs font-mono tracking-[0.2em] uppercase mb-6 text-center">
+          <p className="text-brand-subtle text-xs font-mono tracking-[0.2em] uppercase mb-6 text-center">
             Certificaciones que respaldan estas políticas
           </p>
           <div className="flex items-center justify-center gap-8 flex-wrap">
             {['RUC', 'BASC', 'ISO', 'ANDI'].map((cert) => (
               <motion.span
                 key={cert}
-                whileHover={{ scale: 1.05, color: '#FF6B00' }}
+                whileHover={{ scale: 1.05, color: 'var(--color-accent)' }}
                 className="
-                  text-[#333] font-display text-2xl tracking-widest
+                  text-brand-subtle font-display text-2xl tracking-widest
                   transition-colors duration-200 cursor-default
                 "
               >

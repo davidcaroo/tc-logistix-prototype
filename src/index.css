@@ -1,25 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+/* ── DARK MODE (default) ─────────────────────────────────────── */
+:root,
+.dark {
+  --color-bg-primary:   #0A0A0A;
+  --color-bg-secondary: #141414;
+  --color-bg-surface:   #1C1C1C;
+  --color-border:       #2A2A2A;
+  --color-text-primary: #F5F5F0;
+  --color-text-muted:   #888888;
+  --color-text-subtle:  #444444;
+  --color-accent:       #FF6B00;
+  --color-accent-glow:  rgba(255, 107, 0, 0.2);
+
+  /* Sombras */
+  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow:  0 0 24px rgba(255, 107, 0, 0.2);
+
+  /* Grain overlay */
+  --grain-opacity: 0.03;
+}
+
+/* ── LIGHT MODE ──────────────────────────────────────────────── */
+.light {
+  --color-bg-primary:   #F2EDE8;
+  --color-bg-secondary: #E8E2DB;
+  --color-bg-surface:   #FFFFFF;
+  --color-border:       #D4CCC4;
+  --color-text-primary: #1A1A1A;
+  --color-text-muted:   #6B6560;
+  --color-text-subtle:  #A89E96;
+  --color-accent:       #E55A00;
+  --color-accent-glow:  rgba(229, 90, 0, 0.12);
+
+  --shadow-card:  0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glow:  0 0 24px rgba(229, 90, 0, 0.15);
+
+  --grain-opacity: 0.015;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Bebas Neue", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-orange: #FF6B00;
-  --color-brand-orange-muted: rgba(255, 107, 0, 0.2);
-  --color-brand-dark: #0A0A0A;
-  --color-brand-dark-alt: #141414;
-  --color-brand-dark-surface: #1C1C1C;
-  --color-brand-dark-border: #2A2A2A;
-  --color-brand-white: #F5F5F0;
-  --color-brand-grey: #888888;
+  /* Semantic Brand Colors */
+  --color-brand-bg: var(--color-bg-primary);
+  --color-brand-bg-2: var(--color-bg-secondary);
+  --color-brand-surface: var(--color-bg-surface);
+  --color-brand-border: var(--color-border);
+  --color-brand-text: var(--color-text-primary);
+  --color-brand-muted: var(--color-text-muted);
+  --color-brand-subtle: var(--color-text-subtle);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-glow: var(--color-accent-glow);
+
+  /* Legacy mappings for compatibility during transition */
+  --color-brand-orange: var(--color-accent);
+  --color-brand-orange-muted: var(--color-accent-glow);
+  --color-brand-dark: var(--color-bg-primary);
+  --color-brand-dark-alt: var(--color-bg-secondary);
+  --color-brand-dark-surface: var(--color-bg-surface);
+  --color-brand-dark-border: var(--color-border);
+  --color-brand-white: var(--color-text-primary);
+  --color-brand-grey: var(--color-text-muted);
   --color-brand-success: #00FF87;
 }
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 0.35s ease,
+      border-color     0.35s ease,
+      color            0.2s ease,
+      box-shadow       0.35s ease,
+      opacity          0.2s ease;
+  }
+
+  .no-theme-transition,
+  .no-theme-transition * {
+    transition: none !important;
+  }
+
   body {
-    @apply bg-brand-dark text-brand-white font-sans antialiased;
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -36,20 +103,27 @@
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    opacity: var(--grain-opacity);
+  }
+
   .glow-orange {
-    box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+    box-shadow: var(--shadow-glow);
   }
 
   .text-gradient-animated {
     background: linear-gradient(
       to right,
-      var(--color-brand-orange),
+      var(--color-brand-accent),
       #ff9d4d,
-      var(--color-brand-orange)
+      var(--color-brand-accent)
     );
     background-size: 200% auto;
     -webkit-background-clip: text;

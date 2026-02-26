@@ -107,9 +107,9 @@ export function VacanteModal({ vacante, isOpen, onClose }: VacanteModalProps) {
             <motion.div
               className="
                 relative w-full max-w-2xl max-h-[90vh] overflow-y-auto
-                bg-[#141414] border border-[#2A2A2A] rounded-sm
+                bg-brand-bg-2 border border-brand-border rounded-sm
                 pointer-events-auto
-                scrollbar-thin scrollbar-track-[#1C1C1C] scrollbar-thumb-[#FF6B00]
+                scrollbar-thin scrollbar-track-brand-surface scrollbar-thumb-brand-accent
               "
               variants={modalVariants}
               initial="hidden"
@@ -119,22 +119,22 @@ export function VacanteModal({ vacante, isOpen, onClose }: VacanteModalProps) {
             >
               {/* Línea superior naranja */}
               <motion.div
-                className="absolute top-0 left-0 right-0 h-[2px] bg-[#FF6B00]"
+                className="absolute top-0 left-0 right-0 h-[2px] bg-brand-accent"
                 initial={{ scaleX: 0, originX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}
               />
 
               {/* ── Header del modal ── */}
-              <div className="p-8 pb-6 border-b border-[#2A2A2A]">
+              <div className="p-8 pb-6 border-b border-brand-border">
                 <motion.div variants={contentItemVariants} className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="text-[#FF6B00] text-xs font-mono tracking-[0.2em] uppercase mb-3 block">
+                    <span className="text-brand-accent text-xs font-mono tracking-[0.2em] uppercase mb-3 block">
                       {vacante.area}
                     </span>
                     <h2
                       id="modal-titulo"
-                      className="font-display text-3xl md:text-4xl text-white uppercase leading-none"
+                      className="font-display text-3xl md:text-4xl text-brand-text uppercase leading-none"
                     >
                       {vacante.titulo}
                     </h2>
@@ -143,8 +143,8 @@ export function VacanteModal({ vacante, isOpen, onClose }: VacanteModalProps) {
                     onClick={onClose}
                     className="
                       flex-shrink-0 w-10 h-10 flex items-center justify-center
-                      border border-[#2A2A2A] text-[#888] rounded-sm
-                      hover:border-[#FF6B00] hover:text-[#FF6B00]
+                      border border-brand-border text-brand-muted rounded-sm
+                      hover:border-brand-accent hover:text-brand-accent
                       transition-colors duration-200
                     "
                     aria-label="Cerrar modal"
@@ -178,7 +178,7 @@ export function VacanteModal({ vacante, isOpen, onClose }: VacanteModalProps) {
                       {/* Descripción */}
                       <motion.div variants={contentItemVariants}>
                         <SectionTitle>Descripción del cargo</SectionTitle>
-                        <p className="text-[#888] text-sm leading-relaxed mt-2">
+                        <p className="text-brand-muted text-sm leading-relaxed mt-2">
                           {vacante.descripcion}
                         </p>
                       </motion.div>
@@ -219,7 +219,7 @@ export function VacanteModal({ vacante, isOpen, onClose }: VacanteModalProps) {
                           onClick={() => setShowForm(true)}
                           className="
                             relative w-full py-4 px-8
-                            bg-[#FF6B00] text-black
+                            bg-brand-accent text-brand-bg
                             font-display text-xl tracking-widest uppercase
                             overflow-hidden group
                           "
@@ -276,8 +276,8 @@ function Pill({ icon, label, highlight = false }: {
       inline-flex items-center gap-1.5 px-3 py-1
       text-xs font-mono tracking-widest uppercase rounded-sm border
       ${highlight
-        ? 'border-[#FF6B00] text-[#FF6B00] bg-[#FF6B00]/10'
-        : 'border-[#2A2A2A] text-[#888] bg-[#1C1C1C]'}
+        ? 'border-brand-accent text-brand-accent bg-brand-accent/10'
+        : 'border-brand-border text-brand-muted bg-brand-surface'}
     `}>
       {icon}{label}
     </span>
@@ -286,8 +286,8 @@ function Pill({ icon, label, highlight = false }: {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-white font-display text-lg uppercase tracking-wider flex items-center gap-3">
-      <span className="block w-4 h-[2px] bg-[#FF6B00]" />
+    <h3 className="text-brand-text font-display text-lg uppercase tracking-wider flex items-center gap-3">
+      <span className="block w-4 h-[2px] bg-brand-accent" />
       {children}
     </h3>
   );
@@ -303,10 +303,10 @@ function ListItem({ text, index, accent = false }: {
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
-      className="flex items-start gap-3 text-sm text-[#888]"
+      className="flex items-start gap-3 text-sm text-brand-muted"
     >
       <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-        accent ? 'bg-[#FF6B00]' : 'bg-[#444]'
+        accent ? 'bg-brand-accent' : 'bg-brand-subtle'
       }`} />
       {text}
     </motion.li>

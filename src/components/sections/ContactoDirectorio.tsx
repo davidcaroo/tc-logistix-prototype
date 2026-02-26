@@ -58,7 +58,7 @@ function AreaCard({ area }: { area: AreaContacto }) {
   return (
     <motion.div
       variants={cardVariants}
-      className="border border-[#2A2A2A] bg-[#141414] overflow-hidden group"
+      className="border border-brand-border bg-brand-bg-2 overflow-hidden group"
       layout
     >
       {/* Header del accordion */}
@@ -73,17 +73,17 @@ function AreaCard({ area }: { area: AreaContacto }) {
             w-10 h-10 flex items-center justify-center border flex-shrink-0
             transition-all duration-300
             ${open
-              ? 'border-[#FF6B00] bg-[#FF6B00]/10 text-[#FF6B00] shadow-[0_0_16px_#FF6B0033]'
-              : 'border-[#2A2A2A] text-[#555] group-hover:border-[#FF6B00]/40 group-hover:text-[#FF6B00]/60'}
+              ? 'border-brand-accent bg-brand-accent/10 text-brand-accent shadow-glow'
+              : 'border-brand-border text-brand-subtle group-hover:border-brand-accent/40 group-hover:text-brand-accent/60'}
           `}>
             <Icon size={18} />
           </div>
 
           <div>
-            <p className="font-display text-lg text-white uppercase tracking-wider leading-none">
+            <p className="font-display text-lg text-brand-text uppercase tracking-wider leading-none">
               {area.area}
             </p>
-            <p className="text-[#555] text-xs font-mono tracking-widest mt-0.5">
+            <p className="text-brand-subtle text-xs font-mono tracking-widest mt-0.5">
               {area.contactos.length} contacto{area.contactos.length !== 1 ? 's' : ''}
             </p>
           </div>
@@ -93,7 +93,7 @@ function AreaCard({ area }: { area: AreaContacto }) {
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="text-[#555]"
+          className="text-brand-subtle"
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -101,7 +101,7 @@ function AreaCard({ area }: { area: AreaContacto }) {
 
       {/* Línea naranja que crece al abrir */}
       <motion.div
-        className="h-[1px] bg-[#FF6B00] origin-left"
+        className="h-[1px] bg-brand-accent origin-left"
         animate={{ scaleX: open ? 1 : 0 }}
         initial={{ scaleX: 0 }}
         transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
@@ -129,26 +129,26 @@ function AreaCard({ area }: { area: AreaContacto }) {
                   custom={i}
                   variants={contactoRow}
                   className="flex items-center justify-between gap-3 py-2
-                             border-b border-[#1C1C1C] last:border-0"
+                             border-b border-brand-surface last:border-0"
                 >
                   {/* Cargo */}
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] flex-shrink-0" />
-                    <span className="text-[#888] text-sm truncate">{c.cargo}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
+                    <span className="text-brand-muted text-sm truncate">{c.cargo}</span>
                   </div>
 
                   {/* Teléfono + botones */}
                   {c.telefono !== 'Próximamente' ? (
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-white text-sm font-mono">{c.telefono}</span>
+                      <span className="text-brand-text text-sm font-mono">{c.telefono}</span>
                       {/* Llamar */}
                       <a
                         href={`tel:${c.telefono.replace(/\D/g, '')}`}
                         aria-label={`Llamar a ${c.cargo}`}
                         className="
                           w-8 h-8 flex items-center justify-center
-                          border border-[#2A2A2A] text-[#555]
-                          hover:border-[#FF6B00] hover:text-[#FF6B00]
+                          border border-brand-border text-brand-subtle
+                          hover:border-brand-accent hover:text-brand-accent
                           transition-colors duration-200
                         "
                       >
@@ -163,7 +163,7 @@ function AreaCard({ area }: { area: AreaContacto }) {
                           aria-label={`WhatsApp a ${c.cargo}`}
                           className="
                             w-8 h-8 flex items-center justify-center
-                            border border-[#2A2A2A] text-[#555]
+                            border border-brand-border text-brand-subtle
                             hover:border-[#25D366] hover:text-[#25D366]
                             transition-colors duration-200
                           "
@@ -173,7 +173,7 @@ function AreaCard({ area }: { area: AreaContacto }) {
                       )}
                     </div>
                   ) : (
-                    <span className="text-[#444] text-xs font-mono tracking-widest italic">
+                    <span className="text-brand-subtle text-xs font-mono tracking-widest italic">
                       Próximamente
                     </span>
                   )}
@@ -199,7 +199,7 @@ export function ContactoDirectorio() {
   );
 
   return (
-    <section className="py-24 px-4 bg-[#0A0A0A]">
+    <section className="py-24 px-4 bg-brand-bg">
       <div className="max-w-4xl mx-auto">
 
         {/* Encabezado de sección */}
@@ -210,21 +210,21 @@ export function ContactoDirectorio() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12"
         >
-          <span className="text-[#FF6B00] text-xs font-mono tracking-[0.25em] uppercase block mb-3">
+          <span className="text-brand-accent text-xs font-mono tracking-[0.25em] uppercase block mb-3">
             Directorio interno
           </span>
-          <h2 className="font-display text-5xl md:text-6xl text-white uppercase leading-none">
+          <h2 className="font-display text-5xl md:text-6xl text-brand-text uppercase leading-none">
             Encuentra el<br />
-            <span className="text-[#FF6B00]">Contacto</span> Adecuado
+            <span className="text-brand-accent">Contacto</span> Adecuado
           </h2>
           <motion.div
-            className="mt-4 h-[2px] w-16 bg-[#FF6B00] origin-left"
+            className="mt-4 h-[2px] w-16 bg-brand-accent origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           />
-          <p className="mt-4 text-[#666] text-sm max-w-lg">
+          <p className="mt-4 text-brand-muted text-sm max-w-lg">
             Conecta directamente con el área que necesitas. Cada equipo está listo para atenderte.
           </p>
         </motion.div>
@@ -243,16 +243,16 @@ export function ContactoDirectorio() {
             value={filtro}
             onChange={(e) => setFiltro(e.target.value)}
             className="
-              w-full bg-[#141414] border border-[#2A2A2A] px-5 py-3.5
-              text-white text-sm placeholder:text-[#444] font-mono
-              focus:outline-none focus:border-[#FF6B00]
+              w-full bg-brand-bg-2 border border-brand-border px-5 py-3.5
+              text-brand-text text-sm placeholder:text-brand-subtle font-mono
+              focus:outline-none focus:border-brand-accent
               transition-colors duration-200
             "
           />
           {filtro && (
             <button
               onClick={() => setFiltro('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555] hover:text-white text-xs cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-subtle hover:text-brand-text text-xs cursor-pointer"
             >
               ✕ limpiar
             </button>
@@ -280,7 +280,7 @@ export function ContactoDirectorio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-center text-[#555] font-mono text-sm py-16"
+              className="text-center text-brand-subtle font-mono text-sm py-16"
             >
               No se encontraron resultados para "{filtro}"
             </motion.p>
@@ -293,11 +293,11 @@ export function ContactoDirectorio() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-10 text-center text-[#444] text-xs font-mono tracking-widest"
+          className="mt-10 text-center text-brand-subtle text-xs font-mono tracking-widest"
         >
           ¿No encuentras lo que buscas? Escríbenos a{' '}
           <a href="mailto:contacto@tractocar.com"
-             className="text-[#FF6B00] hover:underline">
+             className="text-brand-accent hover:underline">
             contacto@tractocar.com
           </a>
         </motion.p>

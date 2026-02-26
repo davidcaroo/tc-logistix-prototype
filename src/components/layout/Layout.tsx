@@ -5,10 +5,10 @@ import Footer from "./Footer";
 
 const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-row">
+    <div className="min-h-screen flex flex-row bg-brand-bg">
       {/* Optional: Sidebar or Rail text as per Recipe 11/12 */}
-      <div className="hidden lg:flex fixed left-0 top-0 h-full w-12 items-center justify-center border-r border-brand-dark-border bg-brand-dark z-50">
-        <span className="rail-text text-brand-grey text-[10px] whitespace-nowrap">
+      <div className="hidden lg:flex fixed left-0 top-0 h-full w-12 items-center justify-center border-r border-brand-border bg-brand-bg z-50">
+        <span className="rail-text text-brand-muted text-[10px] whitespace-nowrap">
           TC LOGISTIX — INFRAESTRUCTURA EN MOVIMIENTO — EST. 1994
         </span>
       </div>
