@@ -23,11 +23,11 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="company" element={<Company />} />
-              <Route path="services" element={<Services />} />
-              <Route path="vacancies" element={<Vacancies />} />
-              <Route path="quote" element={<Quote />} />
-              <Route path="contact" element={<Contact />} />
+              <Route path="empresa" element={<Company />} />
+              <Route path="servicios" element={<Services />} />
+              <Route path="vacantes" element={<Vacancies />} />
+              <Route path="cotizar" element={<Quote />} />
+              <Route path="contacto" element={<Contact />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-and-conditions" element={<TermsAndConditions />} />
             </Route>

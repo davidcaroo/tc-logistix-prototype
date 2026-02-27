@@ -36,10 +36,10 @@ const Footer: React.FC = () => {
           <ul className="flex flex-col gap-4">
             {[
               { label: "Inicio", path: "/" },
-              { label: "Empresa", path: "/company" },
-              { label: "Servicios", path: "/services" },
-              { label: "Vacantes", path: "/vacancies" },
-              { label: "Contacto", path: "/contact" },
+              { label: "Empresa", path: "/empresa" },
+              { label: "Servicios", path: "/servicios" },
+              { label: "Vacantes", path: "/vacantes" },
+              { label: "Contacto", path: "/contacto" },
             ].map((item) => (
               <li key={item.label}>
                 <Link

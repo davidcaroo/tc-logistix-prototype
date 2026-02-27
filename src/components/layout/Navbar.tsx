@@ -8,10 +8,10 @@ import { Logo } from "../ui/Logo";
 
 const navLinks = [
   { name: "Inicio", path: "/" },
-  { name: "Empresa", path: "/company" },
-  { name: "Servicios", path: "/services" },
-  { name: "Vacantes", path: "/vacancies" },
-  { name: "Contacto", path: "/contact" },
+  { name: "Empresa", path: "/empresa" },
+  { name: "Servicios", path: "/servicios" },
+  { name: "Vacantes", path: "/vacantes" },
+  { name: "Contacto", path: "/contacto" },
 ];
 
 const Navbar: React.FC = () => {
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <Link
-              to="/quote"
+              to="/cotizar"
               className="bg-brand-accent text-brand-bg px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-brand-text hover:text-brand-bg transition-colors glow-orange"
             >
               Cotizar
@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
 
             <div className="mt-auto">
               <Link
-                to="/quote"
+                to="/cotizar"
                 className="w-full bg-brand-accent text-brand-bg py-4 flex items-center justify-center font-display text-xl uppercase tracking-widest"
               >
                 Solicitar Cotización
